@@ -4,9 +4,9 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="matth"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2019-05-21 09:11:42 AM"/>
+        <attribute name="saved" value="2019-05-21 09:22:30 AM"/>
         <attribute name="created" value="bWF0dGg7TEFQVE9QLUxJMTMzMklGOzIwMTktMDUtMjE7MDg6MTU6MTggQU07MjgxNg=="/>
-        <attribute name="edited" value="bWF0dGg7TEFQVE9QLUxJMTMzMklGOzIwMTktMDUtMjE7MDk6MTE6NDIgQU07MTsyOTE4"/>
+        <attribute name="edited" value="bWF0dGg7TEFQVE9QLUxJMTMzMklGOzIwMTktMDUtMjE7MDk6MjI6MzAgQU07MjsyOTE4"/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -17,14 +17,15 @@
             <declare name="invalidInput" type="String" array="False" size=""/>
             <assign variable="invalidInput" expression="&quot;Invalid input! Please try a number between 1 and 1000000&quot;"/>
             <while expression="upperLimit &lt; 1 || upperLimit &gt; 1000000">
-                <output expression="invalidInput" newline="True"/>
                 <input variable="upperLimit"/>
+                <if expression="upperLimit &lt; 1 || upperLimit &gt; 1000000">
+                    <then>
+                        <output expression="invalidInput" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
             </while>
-            <assign variable="sum" expression="0"/>
-            <declare name="i" type="Integer" array="False" size=""/>
-            <for variable="i" start="1" end="upperLimit" direction="inc" step="1">
-                <assign variable="sum" expression="sum + i"/>
-            </for>
+            <assign variable="sum" expression="(upperLimit * (upperLimit + 1 )) / 2"/>
             <declare name="info" type="String" array="False" size=""/>
             <assign variable="info" expression="&quot;The sum of 1 to &quot;"/>
             <declare name="is" type="String" array="False" size=""/>
